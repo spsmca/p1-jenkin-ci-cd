@@ -1,5 +1,6 @@
 pipeline { 
    agent any  
+   
    tools {
       // Install the Maven version configured as "M3" and add it to the path.
       jdk "jdk-11.0.4"
@@ -10,22 +11,26 @@ pipeline {
    stages { 
       stage('Clean') { 
          steps { 
-             echo 'Hey Philip.....Development....This is Clean stage in pipeline....' 
+             echo 'Hey Philip....This isDeveloment Branch....' 
+             echo 'This is Clean stage in pipeline....' 
              bat 'mvn clean'
          }
       }
+      
       stage('Compile') { 
          steps { 
-             echo 'Hey Philip..This is Compile stage in pipeline....' 
+             echo 'This is Compile stage in pipeline....' 
              bat 'mvn compile'
          }
       }
+      
       stage('Test') { 
          steps { 
              echo 'This is Test stage in pipeline....' 
              bat 'mvn test'
          }
       }
+      
       stage('Deploy') { 
          steps { 
              echo 'This is Deploy stage in pipeline....' 
@@ -33,8 +38,5 @@ pipeline {
          }
       }
    }
+
 }
-
-
-
-
