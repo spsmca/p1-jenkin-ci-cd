@@ -4,14 +4,23 @@ pipeline {
         stage('Build') { 
             steps { 
                 withMaven( maven: 'maven-3.6.2') {
-                    sh 'mvn clean install'
+                    sh 'mvn clean compile'
+                    echo 'This is build stage in pipeline....' 
                 } 
+            }
+        }
+        
+       stage('Test') { 
+            steps { 
+                sh 'mvn test'
+                echo 'This is Test stage in pipeline....' 
             }
         }
         
         stage('Deploy') { 
             steps { 
-                echo 'This is a Deploy stage in pipeline....' 
+                sh 'mvn install'
+                echo 'This is Deploy stage in pipeline....' 
             }
         }
     }
