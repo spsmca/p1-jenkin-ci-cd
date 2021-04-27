@@ -11,7 +11,7 @@ pipeline {
    stages { 
       stage('Clean') { 
          steps { 
-             echo 'Hey Philip....This isDeveloment Branch....' 
+             echo 'Hey Philip....This is Develoment Branch....' 
              echo 'This is Clean stage in pipeline....' 
              bat 'mvn clean'
          }
