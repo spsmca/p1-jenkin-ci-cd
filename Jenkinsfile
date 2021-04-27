@@ -1,21 +1,20 @@
 pipeline { 
     agent any  
-    tools {
-        maven "maven-3.6.2"
-    }
-   
+
     stages { 
         stage('Build') { 
             steps { 
+                   echo 'This is build stage in pipeline....' 
                     bat 'mvn clean compile'
-                    echo 'This is build stage in pipeline....' 
+                    
             }
         }
         
        stage('Test') { 
             steps { 
-                bat 'mvn test'
                 echo 'This is Test stage in pipeline....' 
+                bat 'mvn test'
+                
             }
         }
         
