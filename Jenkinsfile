@@ -1,11 +1,15 @@
 pipeline { 
     agent any  
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "3.6.2"
+    }
 
     stages { 
         stage('Build') { 
             steps { 
                    echo 'This is build stage in pipeline....' 
-                    bat 'mvn clean compile'
+                    bat 'mvn compile'
                     
             }
         }
